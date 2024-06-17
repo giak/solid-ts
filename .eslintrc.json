@@ -1,0 +1,6 @@
+{
+  "ignorePatterns": ["*.md"],
+  "overrides": [
+    // Your other overrides here
+  ]
+}

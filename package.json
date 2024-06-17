@@ -1,0 +1,40 @@
+{
+  "name": "solid-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "srpbasic": "pnpm run watch-and-run ./src/1_SRP/basic/index.ts",
+    "watch-and-run": "ts-node-dev -r tsconfig-paths/register --respawn -- ",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
+    "build": "tsc"
+  },
+  "ntl": {
+    "descriptions": {
+      "srp": "watch and run SRP",
+      "watch-and-run": "watch and run typescript compiler : complete with file path"
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.2",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.2",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^7.32.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.5",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "packageManager": "pnpm@9.4.0"
+}
