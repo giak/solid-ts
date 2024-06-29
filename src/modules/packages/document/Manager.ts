@@ -1,17 +1,24 @@
 import type { Document } from './Document';
 import type { DocumentInterface, DocumentManagerInterface } from '@interfaces/document.interface';
 import { DocumentErrorHandler } from './ErrorHandler';
+import { DocumentFactory } from './DocumentFactory';
 
+/**
+ * Manages a collection of documents and provides operations to create, update, delete, borrow, and read documents.
+ * @class DocumentManager
+ * @implements {DocumentManagerInterface}
+ */
 export class DocumentManager implements DocumentManagerInterface {
   private documents: DocumentInterface[] = [];
   private documentErrorHandler: DocumentErrorHandler = new DocumentErrorHandler();
 
   create(document: DocumentInterface): void {
     this.documentErrorHandler.throwIfDocumentExists(this.documents, document);
-    this.documents.push(document);
+    const newDocument = DocumentFactory.createDocument(document);
+    this.documents.push(newDocument);
   }
 
-  update(documentTitle: string, updatedDocument: Document) {
+  update(documentTitle: string, updatedDocument: DocumentInterface) {
     this.documentErrorHandler.throwIfDocumentNotFound(this.documents, documentTitle);
     const index = this.documents.findIndex((doc) => doc.title === documentTitle);
     this.documents[index] = updatedDocument;
