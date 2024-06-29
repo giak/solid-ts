@@ -1,4 +1,5 @@
 import type { CRUDInterface } from './crud.interface';
+import type { DocumentType } from '@packages/document/DocumentFactory';
 
 /**
  * DocumentInterface is an interface for a Document.
@@ -15,8 +16,25 @@ export interface DocumentInterface {
   author: string;
   publicationYear: number;
   available: boolean;
+  type: DocumentType;
 }
 
+export interface DocumentOperationInterface extends DocumentInterface {
+  getType(): string;
+  getContent(): string;
+}
+
+/**
+ * Represents the interface for managing documents.
+ * Extends the CRUDInterface and adds a method for borrowing documents.
+ * @interface DocumentManagerInterface
+ * @extends {CRUDInterface<DocumentInterface>}
+ */
 export interface DocumentManagerInterface extends CRUDInterface<DocumentInterface> {
+  /**
+   * Borrows a document with the specified title and availability status.
+   * @param title - The title of the document to borrow.
+   * @param available - The availability status of the document.
+   */
   borrow(title: string, available: boolean): void;
 }

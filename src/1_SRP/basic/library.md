@@ -1,6 +1,20 @@
 # Library Class
 
+## Principe SRP (Single Responsibility Principle)
+
+
+Imagine que tu as plusieurs boîtes pour ranger tes affaires.
+Tu as une boîte pour tes crayons, une boîte pour tes jouets, et une boîte pour tes livres.
+Chaque boîte a une seule responsabilité : la boîte des crayons s'occupe des crayons, la boîte des jouets s'occupe des jouets, et ainsi de suite.
+
+> Pour savoir si une classe respecte le SRP, il faut dire: « La classe X fait … » en étant le plus spécifique possible.
+> Si la phrase ci-dessus contient des `et` ou des `ou`, alors votre classe a plus d’une responsabilité.
+> De façon plus subtile, si elle contient des mots génériques comme `gère` ou `objet` (exemple: gère les utilisateurs, valide les objets), alors vous devriez avoir la puce à l’oreille.
+
+Il est essentiel de découpler le code pour que chaque partie soit responsable d'une seule tâche, en la réalisant de manière simple et efficace, et qu'elle soit modifiable par une seule cause ou acteur qui demande à changer cet état.
+
 ## But : application du principe de responsabilité unique
+
 
 La classe `Library` gère à la fois les documents et les étudiants.
 Selon le principe de responsabilité unique, ces responsabilités sont séparées en deux classes distinctes `DocumentManager` et `StudentManager`.
